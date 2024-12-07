@@ -1,0 +1,84 @@
+/* Booking Form Styles */
+.booking-form {
+    background-color: #fff;
+    padding: 40px;
+    margin: 20px auto;
+    max-width: 800px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.booking-form h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+.booking-form form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.booking-form .form-group {
+    text-align: left;
+}
+
+.booking-form label {
+    font-size: 1.1em;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.booking-form input, .booking-form select, .booking-form textarea {
+    width: 100%;
+    padding: 12px;
+    font-size: 1em;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+.booking-form button {
+    background-color: #ff8000;
+    color: white;
+    padding: 15px 30px;
+    font-size: 1.1em;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.booking-form button:hover {
+    background-color: #e67e00;
+}
+
+/* Booking Summary */
+.booking-summary {
+    background-color: #f4f4f4;
+    padding: 20px;
+    border-radius: 5px;
+    margin-top: 30px;
+    text-align: left;
+}
+
+.booking-summary h3 {
+    font-size: 1.8em;
+    margin-bottom: 10px;
+}
+
+.booking-summary p {
+    font-size: 1.1em;
+    margin-bottom: 8px;
+}
+
+/* Mobile View */
+@media (max-width: 768px) {
+    .booking-form {
+        padding: 20px;
+    }
+
+    .booking-form h2 {
+        font-size: 2em;
+    }
+}

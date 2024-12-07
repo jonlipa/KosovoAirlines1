@@ -1,0 +1,65 @@
+/* Flight Search Styles */
+.flight-search {
+    background-color: #fff;
+    padding: 40px;
+    margin: 20px auto;
+    max-width: 1200px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.flight-search h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+.flight-search form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 15px;
+}
+
+.flight-search .form-group {
+    flex: 1;
+    min-width: 250px;
+    text-align: left;
+}
+
+.flight-search label {
+    font-size: 1.1em;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.flight-search input, .flight-search select {
+    width: 100%;
+    padding: 12px;
+    font-size: 1em;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+.flight-search button {
+    background-color: #ff8000;
+    color: white;
+    padding: 15px 30px;
+    font-size: 1.1em;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.flight-search button:hover {
+    background-color: #e67e00;
+}
+
+/* Mobile View */
+@media (max-width: 768px) {
+    .flight-search form {
+        flex-direction: column;
+        align-items: center;
+    }
+}

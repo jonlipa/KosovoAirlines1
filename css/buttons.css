@@ -1,0 +1,52 @@
+/* Default Button Styles */
+button, .btn {
+    background-color: #ff8000;
+    color: white;
+    padding: 15px 30px;
+    font-size: 1.1em;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    text-align: center;
+}
+
+button:hover, .btn:hover {
+    background-color: #e67e00;
+    transform: scale(1.05);
+}
+
+/* Outline Button */
+.btn-outline {
+    background-color: transparent;
+    color: #ff8000;
+    border: 2px solid #ff8000;
+}
+
+.btn-outline:hover {
+    background-color: #ff8000;
+    color: white;
+}
+
+/* Rounded Button */
+.btn-rounded {
+    border-radius: 30px;
+}
+
+/* Block Button (Full Width) */
+.btn-block {
+    display: block;
+    width: 100%;
+}
+
+/* Small Button */
+.btn-small {
+    padding: 10px 20px;
+    font-size: 0.9em;
+}
+
+/* Large Button */
+.btn-large {
+    padding: 20px 40px;
+    font-size: 1.3em;
+}

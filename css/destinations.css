@@ -1,0 +1,95 @@
+/* General Page Styles */
+.destinations-page {
+    background: url('../images/Background2.jpg') no-repeat center center/cover;
+    color: white;
+    padding-top: 100px; /* Space for fixed header */
+}
+
+/* Header */
+.page-header {
+    background-color: rgba(0, 0, 0, 0.8); /* Dark translucent background for the header */
+    color: white;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.page-header h1 {
+    margin: 0;
+    font-size: 1.8em;
+}
+
+.page-header nav ul {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+    margin: 0;
+    padding: 0;
+}
+
+.page-header nav ul li {
+    margin: 0;
+}
+
+.page-header nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.page-header nav ul li a:hover {
+    color: #ff8000;
+}
+
+/* Destinations Section */
+.destinations {
+    margin-top: 140px;
+    text-align: center;
+}
+
+.destinations h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+
+.destinations p {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+}
+
+.destination-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    padding-bottom: 20px;
+}
+
+.destination-item {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    color: #333;
+}
+
+.destination-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.destination-item h3 {
+    margin-top: 10px;
+    color: #003366;
+}
+
+.destination-item p {
+    padding: 10px;
+    font-size: 0.9em;
+}

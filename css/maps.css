@@ -1,0 +1,41 @@
+/* Map Container */
+.map-container {
+    width: 100%;
+    height: 400px;
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 20px 0;
+}
+
+/* Responsive Map */
+.map-container iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* Overlay for Map Text */
+.map-overlay {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 1em;
+}
+
+/* Mobile View */
+@media (max-width: 768px) {
+    .map-container {
+        height: 300px;
+    }
+
+    .map-overlay {
+        font-size: 0.9em;
+        padding: 8px 15px;
+    }
+}

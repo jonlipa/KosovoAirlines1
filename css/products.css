@@ -1,0 +1,137 @@
+/* General body styling */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: url('../images/Background3.jpg') no-repeat center center/cover;
+    color: #333;
+}
+
+/* Header styling */
+header {
+    background-color: rgba(0, 0, 0, 0.8); /* Dark translucent background for the header */
+    color: white;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+header .logo h1 {
+    margin: 0;
+    font-size: 1.8em;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: white;
+    text-transform: uppercase;
+    font-size: 0.9em;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: #ff8000;
+}
+
+/* Section styling for seat classes */
+.product-classes {
+    padding: 50px 20px;
+    background: rgba(255, 255, 255, 0.9);
+    margin: 20px auto;
+    max-width: 1200px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+.product-classes h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: #003366;
+}
+
+.product-classes p {
+    font-size: 1.1em;
+    margin-bottom: 30px;
+}
+
+/* Grid layout for seat classes */
+.class-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.class-item {
+    background: white;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.class-item img {
+    width: 100%; /* Responsive image width */
+    max-height: 200px; /* Uniform height */
+    object-fit: cover; /* Ensures images are cropped neatly */
+    border-radius: 8px;
+}
+
+.class-item h2 {
+    color: #003366;
+    margin: 10px 0;
+}
+
+.class-item p {
+    font-size: 0.95em;
+    color: #555;
+}
+
+/* Footer styling */
+footer {
+    background-color: rgba(0, 0, 0, 0.8); /* Consistent footer color */
+    color: white;
+    text-align: center;
+    padding: 15px 0;
+    margin-top: 30px;
+}
+
+/* Responsive styling */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav ul li {
+        margin: 10px 0;
+    }
+
+    .product-classes {
+        padding: 20px;
+    }
+
+    .class-item img {
+        max-height: 150px;
+    }
+}

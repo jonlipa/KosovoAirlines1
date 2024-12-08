@@ -1,0 +1,90 @@
+/* General styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    color: #333;
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Siguron që faqja mbulon gjithmonë lartësinë e dritares */
+}
+
+/* Header Styles */
+header {
+    background-color: rgba(0, 0, 0, 0.7); /* Ngjyrë e zezë transparente */
+    color: white;
+    padding: 10px 20px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 10;
+}
+
+header .logo h1 {
+    font-size: 1.8em;
+    margin: 0;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li a {
+    color: white;
+    text-transform: uppercase;
+    font-size: 16px;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: #ff8000;
+}
+
+/* About Page Styles */
+.about-page {
+    background: url('../images/Background1.jpg') no-repeat center center/cover;
+    padding: 100px 20px;
+    flex: 1; /* Siguron që përmbajtja zgjerohet deri në fund të faqes */
+}
+
+.about-container {
+    background: rgba(255, 255, 255, 0.8); /* Bardhësi me transparencë 80% */
+    padding: 30px;
+    border-radius: 10px;
+    max-width: 800px;
+    margin: 0 auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Hijë për pamje më elegante */
+}
+
+.about-container h1,
+.about-container h2 {
+    color: #003366;
+}
+
+.about-container ul {
+    list-style: disc;
+    padding-left: 20px;
+    margin: 20px 0;
+}
+
+.about-container ul li {
+    margin-bottom: 10px;
+}
+
+.about-container p {
+    margin-bottom: 20px;
+}

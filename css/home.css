@@ -1,0 +1,62 @@
+/* Header Styles */
+header {
+    background-color: rgba(0, 0, 0, 0.7); /* Transparent black for visibility over the video */
+    color: white;
+    padding: 10px 20px;
+    position: absolute; /* Ensures header stays over the video */
+    top: 0;
+    left: 0;
+    width: calc(100% - 40px); /* Adjust width to keep header content centered */
+    margin: 0 auto; /* Center header content horizontally */
+    z-index: 10; /* Ensures header stays above the video */
+    display: flex; /* Use flexbox for layout */
+    align-items: center; /* Vertically align content */
+    justify-content: space-between; /* Equal space between left and right content */
+    box-sizing: border-box; /* Include padding in width calculations */
+}
+
+/* Style for the logo (Kosova Airlines) */
+header .logo h1 {
+    font-size: 2em; /* Adjust size as needed */
+    margin: 0;
+    text-align: left; /* Align text to the left */
+}
+
+/* Navigation menu styles */
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex; /* Flexbox for horizontal alignment */
+    gap: 15px; /* Space between menu items */
+}
+
+nav ul li {
+    display: inline;
+}
+
+nav ul li a {
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: #ff8000;
+}
+
+/* Mobile View */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column; /* Stack content vertically */
+        text-align: center; /* Center align for mobile */
+    }
+
+    nav ul {
+        flex-direction: column; /* Vertical menu for mobile */
+        gap: 10px; /* Reduce spacing between items */
+    }
+}

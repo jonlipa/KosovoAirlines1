@@ -1,0 +1,62 @@
+/* Global Mobile Styles */
+body {
+    font-size: 16px;
+}
+
+header, nav, footer, .content {
+    padding: 10px;
+}
+
+/* Mobile View */
+@media (max-width: 768px) {
+    header .logo img {
+        max-width: 150px;
+    }
+
+    nav ul li {
+        display: block;
+        margin: 10px 0;
+    }
+
+    .content {
+        padding: 10px;
+    }
+
+    .flight-search form, .booking-form form {
+        flex-direction: column;
+    }
+
+    .booking-form h2, .flight-search h2 {
+        font-size: 2em;
+    }
+}
+
+/* Tablet View */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .content {
+        padding: 20px;
+    }
+
+    header .logo img {
+        max-width: 170px;
+    }
+
+    nav ul li {
+        margin: 0 10px;
+    }
+}
+
+/* Desktop View */
+@media (min-width: 1025px) {
+    .content {
+        padding: 40px;
+    }
+
+    header .logo img {
+        max-width: 200px;
+    }
+
+    nav ul li {
+        margin: 0 15px;
+    }
+}

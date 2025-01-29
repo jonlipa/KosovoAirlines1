@@ -42,6 +42,8 @@
     <main id="mainContent">
         <video autoplay muted id="homeVideo">
             <source src="videos/VideoBackground1.mp4" type="video/mp4">
+            <source src="videos/Videobackground2.mp4" type="video/mp4">
+            <source src="videos/Videobackground3.mp4" type="video/mp4">
         </video>
         <div class="home-content">
             <h2>Fly with Kosova Airlines</h2>

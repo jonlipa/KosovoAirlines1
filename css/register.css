@@ -2,7 +2,7 @@ body {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
-    background: url('../images/loginregister.jpg') no-repeat center center/cover; /* Updated background */
+    background: url('../images/loginregister.jpg') no-repeat center center/cover;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -71,7 +71,19 @@ button:hover {
     text-align: center;
 }
 
-.register-link {
+.success-message {
+    color: green;
+    font-size: 14px;
     text-align: center;
-    font-size: 12px;
+    margin-top: 20px;
 }
+
+a {
+    color: #0056b3;
+    text-decoration: underline;
+}
+
+a:hover {
+    color: #004494;
+}
+

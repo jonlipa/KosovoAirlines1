@@ -1,62 +1,55 @@
-/* Header Styles */
-header {
-    background-color: rgba(0, 0, 0, 0.7); /* Transparent black for visibility over the video */
+/* CSS për header që nuk ndikon në pjesën tjetër */
+#mainHeader {
+    position: relative;
+    z-index: 1;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0; /* Mos ndiko në seksionet e tjera */
+}
+
+#mainHeader .logo h1 {
     color: white;
-    padding: 10px 20px;
-    position: absolute; /* Ensures header stays over the video */
-    top: 0;
-    left: 0;
-    width: calc(100% - 40px); /* Adjust width to keep header content centered */
-    margin: 0 auto; /* Center header content horizontally */
-    z-index: 10; /* Ensures header stays above the video */
-    display: flex; /* Use flexbox for layout */
-    align-items: center; /* Vertically align content */
-    justify-content: space-between; /* Equal space between left and right content */
-    box-sizing: border-box; /* Include padding in width calculations */
-}
-
-/* Style for the logo (Kosova Airlines) */
-header .logo h1 {
-    font-size: 2em; /* Adjust size as needed */
     margin: 0;
-    text-align: left; /* Align text to the left */
+    font-size: 1.5em;
 }
 
-/* Navigation menu styles */
-nav ul {
-    list-style-type: none;
+#mainHeader nav ul {
+    list-style: none;
     padding: 0;
+    display: flex;
+    justify-content: flex-end;
     margin: 0;
-    display: flex; /* Flexbox for horizontal alignment */
-    gap: 15px; /* Space between menu items */
 }
 
-nav ul li {
-    display: inline;
+#mainHeader nav ul li {
+    margin-left: 20px;
 }
 
-nav ul li a {
+#mainHeader nav ul li a {
     color: white;
-    font-size: 18px;
+    text-decoration: none;
     font-weight: bold;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    transition: color 0.3s;
+    padding: 5px 10px;
+    transition: background-color 0.3s ease;
 }
 
-nav ul li a:hover {
-    color: #ff8000;
+#mainHeader nav ul li a:hover {
+    background-color: #0056b3;
+    border-radius: 5px;
 }
 
-/* Mobile View */
-@media (max-width: 768px) {
-    header {
-        flex-direction: column; /* Stack content vertically */
-        text-align: center; /* Center align for mobile */
-    }
+/* Stilet për ikonën Admin Login */
+#mainHeader nav ul li img {
+    width: 24px;
+    height: 24px;
+    vertical-align: middle;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
 
-    nav ul {
-        flex-direction: column; /* Vertical menu for mobile */
-        gap: 10px; /* Reduce spacing between items */
-    }
+#mainHeader nav ul li img:hover {
+    transform: scale(1.1);
 }

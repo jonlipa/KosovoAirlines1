@@ -51,56 +51,78 @@ nav ul li a:hover {
 
 /* Section styling for seat classes */
 .product-classes {
-    padding: 50px 20px;
-    background: rgba(255, 255, 255, 0.9);
-    margin: 20px auto;
+    padding: 60px 30px;
+    background: #f4f8fc; /* Ngjyrë e lehtë dhe profesionale */
+    margin: 30px auto;
     max-width: 1200px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
     text-align: center;
 }
 
 .product-classes h1 {
-    font-size: 2.5em;
-    margin-bottom: 20px;
+    font-size: 2.8em;
+    margin-bottom: 25px;
     color: #003366;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
 }
 
 .product-classes p {
-    font-size: 1.1em;
-    margin-bottom: 30px;
+    font-size: 1.2em;
+    margin-bottom: 40px;
+    color: #555;
+    line-height: 1.6;
 }
 
 /* Grid layout for seat classes */
 .class-list {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
 }
 
+/* Individual seat class card */
 .class-item {
     background: white;
-    padding: 15px;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid #e0e0e0; /* Bordurë e lehtë për një ndarje të pastër */
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
     text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.class-item:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
 .class-item img {
-    width: 100%; /* Responsive image width */
-    max-height: 200px; /* Uniform height */
-    object-fit: cover; /* Ensures images are cropped neatly */
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
     border-radius: 8px;
+    margin-bottom: 15px;
+    transition: transform 0.3s ease;
+}
+
+.class-item img:hover {
+    transform: scale(1.05);
 }
 
 .class-item h2 {
-    color: #003366;
+    font-size: 1.4em;
     margin: 10px 0;
+    color: #003366;
+    font-weight: bold;
 }
 
 .class-item p {
-    font-size: 0.95em;
+    font-size: 1em;
     color: #555;
+    line-height: 1.5;
 }
 
 /* Footer styling */
@@ -132,6 +154,10 @@ footer {
     }
 
     .class-item img {
-        max-height: 150px;
+        height: 150px;
+    }
+
+    .product-classes h1 {
+        font-size: 2em;
     }
 }

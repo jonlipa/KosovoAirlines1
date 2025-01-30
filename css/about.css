@@ -5,8 +5,13 @@
     box-sizing: border-box;
 }
 
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Georgia', serif; /* Fonti i ngjashëm si në foton e parë */
     color: #333;
     line-height: 1.6;
     display: flex;
@@ -16,10 +21,10 @@ body {
 
 /* Header Styles */
 header {
-    background-color: rgba(0, 0, 0, 0.7); /* Ngjyrë e zezë transparente */
+    background-color: rgba(0, 0, 0, 0.9); /* Ngjyrë e zezë më e errët për sfond */
     color: white;
-    padding: 10px 20px;
-    position: absolute;
+    padding: 15px 30px;
+    position: sticky;
     top: 0;
     left: 0;
     width: 100%;
@@ -27,25 +32,49 @@ header {
     justify-content: space-between;
     align-items: center;
     z-index: 10;
+    border-bottom: 3px solid #ff8000; /* Vijë ndarëse për pamje më elegante */
 }
 
 header .logo h1 {
-    font-size: 1.8em;
+    font-size: 2em;
     margin: 0;
+    font-weight: bold;
+}
+
+/* Header styling */
+header {
+    background-color: rgba(0, 0, 0, 0.8); /* Dark translucent background for the header */
+    color: white;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+header .logo h1 {
+    margin: 0;
+    font-size: 1.8em;
 }
 
 nav ul {
     list-style: none;
     display: flex;
-    gap: 15px;
     margin: 0;
     padding: 0;
+}
+
+nav ul li {
+    margin: 0 15px;
 }
 
 nav ul li a {
     color: white;
     text-transform: uppercase;
-    font-size: 16px;
+    font-size: 0.9em;
+    text-decoration: none;
     font-weight: bold;
     transition: color 0.3s;
 }
@@ -57,7 +86,6 @@ nav ul li a:hover {
 /* About Page Styles */
 .about-page {
     background: url('../images/Background1.jpg') no-repeat center center/cover;
-    padding: 100px 20px;
     flex: 1; /* Siguron që përmbajtja zgjerohet deri në fund të faqes */
 }
 

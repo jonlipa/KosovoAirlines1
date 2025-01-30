@@ -1,38 +1,43 @@
-body {
+body {  
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
-    background: url('../images/loginregister.jpg') no-repeat center center/cover; /* Updated background */
+    background: url('../images/loginregister.jpg') no-repeat center center/cover; /* Sfonda ekzistuese */
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
+    color: #333; /* Ngjyrë neutrale për tekst */
 }
 
 .container {
-    background: rgba(255, 255, 255, 0.9);
+    background: rgba(255, 255, 255, 0.95); /* Transparencë e lehtë për sfondin */
     padding: 30px;
     border-radius: 15px;
     width: 100%;
     max-width: 400px;
-    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2); /* Hije e lehtë për estetikë */
+    text-align: center;
 }
 
 h1 {
     text-align: center;
-    color: #003366;
+    color: #003366; /* Ngjyrë blu e errët */
+    font-size: 26px;
+    font-weight: bold;
     margin-bottom: 20px;
 }
 
 .input-group {
     margin-bottom: 20px;
+    text-align: left;
 }
 
 label {
     font-size: 14px;
     margin-bottom: 5px;
     display: block;
-    color: #333;
+    color: #333; /* Ngjyrë neutrale për tekst */
 }
 
 input {
@@ -40,38 +45,100 @@ input {
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1); /* Efekt i lehtë për brendësinë */
+    font-size: 14px;
+    outline: none;
+    transition: border-color 0.3s ease;
 }
 
-.options {
-    display: flex;
-    justify-content: space-between;
-    font-size: 12px;
-    margin-bottom: 20px;
+input:focus {
+    border-color: #0056b3; /* Ngjyrë blu gjatë fokusimit */
 }
 
 button {
     width: 100%;
     background-color: #0056b3;
     color: white;
-    padding: 10px;
+    padding: 12px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     font-weight: bold;
-    transition: background-color 0.3s ease;
+    font-size: 16px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    text-transform: uppercase;
 }
 
 button:hover {
     background-color: #004494;
+    transform: scale(1.03); /* Efekt rritje e lehtë gjatë hover */
 }
 
 .error-message {
     color: red;
-    font-size: 12px;
+    font-size: 13px;
     text-align: center;
+    margin-bottom: 15px;
+}
+
+.info-message {
+    background-color: #e7f3fe; /* Ngjyra blu e lehtë */
+    color: #31708f; /* Tekst blu */
+    padding: 10px;
+    border: 1px solid #bce8f1;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 14px;
 }
 
 .register-link {
     text-align: center;
-    font-size: 12px;
+    font-size: 13px;
+    color: #007bff;
+    text-decoration: none;
+}
+
+.register-link:hover {
+    text-decoration: underline;
+}
+
+/* Stilizimi për butonat në mesazhin e mirëseardhjes */
+.actions {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Hapësira mes butonave */
+    margin-top: 20px;
+    align-items: center; /* Qendro butonat */
+}
+
+.actions .btn {
+    display: inline-block;
+    padding: 12px 25px; /* Madhësia e butonave */
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase; /* Tekst me shkronja të mëdha */
+    text-align: center;
+    color: white;
+    background-color: #007bff; /* Ngjyra blu për Explore */
+    border: none;
+    border-radius: 8px; /* Këndet e rrumbullakosura */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Hije për butonat */
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none; /* Hiq vijën poshtë linkut */
+}
+
+.actions .btn:hover {
+    background-color: #0056b3; /* Ngjyrë blu më e errët gjatë hover */
+    transform: scale(1.05); /* Rritje e lehtë gjatë hover */
+    box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.2); /* Hije më e theksuar */
+}
+
+.actions .btn.logout {
+    background-color: #e74c3c; /* Ngjyra e kuqe për Logout */
+}
+
+.actions .btn.logout:hover {
+    background-color: #c0392b; /* Ngjyrë e kuqe më e errët gjatë hover */
 }

@@ -1,18 +1,34 @@
 <?php
 session_start();
 
-// Mbyll të gjitha variablat e sesionit
-session_unset();
+class LogoutHandler {
+    public function __construct() {
+        $this->logoutUser();
+    }
 
-// Shkatërro sesionin
-session_destroy();
+    private function logoutUser() {
+        // Vendos një flag për ta njohur që përdoruesi është logout
+        $_SESSION['just_logged_out'] = true;
 
-// Shto header për të ndaluar cache
-header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
-header("Cache-Control: post-check=0, pre-check=0", false);
-header("Pragma: no-cache");
+        // Fshin të gjitha variablat e sesionit
+        session_unset();
+        session_destroy();
 
-// Redirektohu në faqen e login-it ose kryesore
-header("Location: login.php?message=" . urlencode("You have been successfully logged out."));
-exit();
+        // Parandalon që faqja të ruhet në cache
+        header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
+        header("Cache-Control: post-check=0, pre-check=0", false);
+        header("Pragma: no-cache");
+        
+        // Krijon një mekanizëm për të bllokuar butonin "Back"
+        echo "<script>
+            sessionStorage.clear(); // Pastron çdo të dhënë të ruajtur në sesion
+            localStorage.clear(); // Pastron local storage për më shumë siguri
+            window.location.href = 'login.php';
+        </script>";
+        exit();
+    }
+}
+
+// Ekzekuton logout-in
+new LogoutHandler();
 ?>

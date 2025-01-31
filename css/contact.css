@@ -9,7 +9,7 @@ body {
 
 /* Header styling */
 header {
-    background-color: rgba(0, 0, 0, 0.8); /* Dark translucent background for the header */
+    background-color: rgba(0, 0, 0, 0.8);
     color: white;
     padding: 10px 20px;
     display: flex;
@@ -53,7 +53,7 @@ nav ul li a:hover {
 .contact-info {
     text-align: center;
     padding: 80px 20px;
-    background: linear-gradient(to right, #ffffff, #f2f6fc); /* Gradient horizontal */
+    background: linear-gradient(to right, #ffffff, #f2f6fc);
     margin: 40px auto;
     max-width: 1200px;
     border-radius: 20px;
@@ -90,7 +90,7 @@ nav ul li a:hover {
     border-radius: 15px;
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
     text-align: center;
-    width: 280px; /* Fixed width for consistency */
+    width: 280px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     position: relative;
     overflow: hidden;
@@ -191,6 +191,20 @@ nav ul li a:hover {
 .contact-form .submit-btn:hover {
     background-color: #002244;
     transform: translateY(-5px);
+}
+
+/* Success Message */
+#successMessage {
+    text-align: center;
+    font-size: 1.2em;
+    color: green;
+    margin-top: 20px;
+    font-weight: bold;
+    display: none;
+}
+
+.hidden {
+    display: none;
 }
 
 /* Responsive styling */

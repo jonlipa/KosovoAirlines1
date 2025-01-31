@@ -1,29 +1,57 @@
-function handleResponsiveDesign() {
-    const windowWidth = window.innerWidth;
+class ResponsiveHandler {
+    constructor(config = {}) {
+        this.elements = {
+            header: document.querySelector('header'),
+            someElement: document.querySelector('.some-element'),
+            ...config
+        };
+        this.resizeTimeout = null;
 
-    // Kontroll për header
-    const header = document.querySelector('header');
-    if (header) {
-        if (windowWidth < 768) {
-            header.classList.add('mobile');
-        } else {
-            header.classList.remove('mobile');
+        this.init();
+    }
+
+    init() {
+        // Bind resize event me debounce
+        window.addEventListener('resize', () => {
+            clearTimeout(this.resizeTimeout);
+            this.resizeTimeout = setTimeout(() => this.handleResponsiveDesign(), 150);
+        });
+
+        // Ekzekuto në ngarkim të faqes
+        document.addEventListener('DOMContentLoaded', () => this.handleResponsiveDesign());
+
+        // Shto CSS dinamike
+        this.injectStyles();
+    }
+
+    handleResponsiveDesign() {
+        const windowWidth = window.innerWidth;
+
+        // Ndrysho klasat bazuar në gjerësinë e dritares
+        if (this.elements.header) {
+            this.elements.header.classList.toggle('mobile', windowWidth < 768);
+        }
+        if (this.elements.someElement) {
+            this.elements.someElement.classList.toggle('hidden', windowWidth < 500);
         }
     }
 
-    // Kontroll për some-element
-    const someElement = document.querySelector('.some-element');
-    if (someElement) {
-        someElement.style.display = windowWidth < 500 ? 'none' : 'block';
+    injectStyles() {
+        const style = document.createElement('style');
+        style.innerHTML = `
+            header.mobile {
+                background-color: #f8f9fa;
+                padding: 10px;
+            }
+            .hidden {
+                display: none !important;
+            }
+        `;
+        document.head.appendChild(style);
     }
 }
 
-// Përdor debounce për performancë më të mirë gjatë resize
-let resizeTimeout;
-window.addEventListener('resize', () => {
-    clearTimeout(resizeTimeout);
-    resizeTimeout = setTimeout(handleResponsiveDesign, 150);
+// Inicializimi i klasës për menaxhimin e dizajnit responsive në secilën faqe me elementë të ndryshëm
+new ResponsiveHandler({
+    someElement: document.querySelector('.custom-element')
 });
-
-// Ekzekuto funksionin në ngarkim të faqes
-document.addEventListener('DOMContentLoaded', handleResponsiveDesign);

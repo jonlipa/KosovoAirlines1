@@ -30,7 +30,9 @@
     display: block;
 }
 
-.booking-form input, .booking-form select, .booking-form textarea {
+.booking-form input,
+.booking-form select,
+.booking-form textarea {
     width: 100%;
     padding: 12px;
     font-size: 1em;

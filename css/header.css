@@ -1,13 +1,16 @@
 /* CSS për header që nuk ndikon në pjesën tjetër */
 #mainHeader {
-    position: relative;
-    z-index: 1;
-    background-color: rgba(0, 0, 0, 0.7);
+    position: fixed;
+    z-index: 1000;
+    background-color: rgba(0, 0, 0, 0.8);
     padding: 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 0; /* Mos ndiko në seksionet e tjera */
+    width: 100%;
+    top: 0;
+    left: 0;
 }
 
 #mainHeader .logo h1 {
@@ -32,13 +35,14 @@
     color: white;
     text-decoration: none;
     font-weight: bold;
-    padding: 5px 10px;
-    transition: background-color 0.3s ease;
+    padding: 8px 12px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    border-radius: 5px;
 }
 
 #mainHeader nav ul li a:hover {
-    background-color: #0056b3;
-    border-radius: 5px;
+    background-color: #0073e6;
+    color: #fff;
 }
 
 /* Stilet për ikonën Admin Login */
@@ -47,9 +51,11 @@
     height: 24px;
     vertical-align: middle;
     cursor: pointer;
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
 #mainHeader nav ul li img:hover {
-    transform: scale(1.1);
+    transform: scale(1.2);
+    opacity: 0.7;
 }
+

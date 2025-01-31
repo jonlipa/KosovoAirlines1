@@ -1,0 +1,126 @@
+/* Stilet për faqen admin */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url('../images/admin_dashboard.png'); /* Vendos imazhin e sfondit */
+    background-size: cover; /* Mbush të gjithë faqen */
+    background-repeat: no-repeat; /* Mos përsërit sfondin */
+    background-attachment: fixed; /* Sfondi qëndron fikse gjatë scroll-it */
+    color: #fff; /* Ngjyra e tekstit bëhet e bardhë për dukshmëri më të mirë */
+}
+
+/* Header */
+h1 {
+    background-color: #0056b3;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin: 0;
+}
+
+/* Seksionet e faqes */
+h2 {
+    color: white;
+    margin-left: 20px;
+}
+
+/* Tabela */
+table {
+    width: 90%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    background-color: white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+    color: #333;
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+}
+
+th, td {
+    text-align: left;
+    padding: 12px;
+}
+
+th {
+    background-color: #0056b3;
+    color: white;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+/* Statistikat */
+.stats-container {
+    width: 80%;
+    margin: 20px auto;
+    background-color: rgba(255, 255, 255, 0.9); /* Sfondi bëhet më i dukshëm */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    padding: 15px;
+    text-align: center;
+    color: #333;
+}
+
+.stats-container h2 {
+    color: #0056b3;
+}
+
+.stats-container ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.stats-container ul li {
+    padding: 10px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+/* Mesazhet e suksesit dhe gabimeve */
+.success-message, .error-message {
+    width: 80%;
+    margin: 20px auto;
+    padding: 15px;
+    border-radius: 5px;
+    text-align: center;
+    font-weight: bold;
+    color: #333;
+}
+
+.success-message {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.error-message {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+/* Butoni për logout */
+.logout a {
+    display: block;
+    text-align: center;
+    width: 150px;
+    margin: 20px auto;
+    padding: 10px;
+    background-color: #0056b3;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s;
+}
+
+.logout a:hover {
+    background-color: #003f7f;
+}

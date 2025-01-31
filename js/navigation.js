@@ -1,11 +1,28 @@
-// Function to toggle the mobile navigation menu
-function toggleNavigation() {
-    const navMenu = document.querySelector('.nav-menu');
-    navMenu.classList.toggle('active');
+class NavigationMenu {
+    constructor(menuSelector, toggleButtonSelector) {
+        this.navMenu = document.querySelector(menuSelector);
+        this.navToggleBtn = document.querySelector(toggleButtonSelector);
+
+        if (this.navToggleBtn && this.navMenu) {
+            this.init();
+        }
+    }
+
+    init() {
+        this.navToggleBtn.addEventListener('click', () => this.toggleMenu());
+        document.addEventListener('click', (event) => this.closeMenuOnClickOutside(event));
+    }
+
+    toggleMenu() {
+        this.navMenu.classList.toggle('active');
+    }
+
+    closeMenuOnClickOutside(event) {
+        if (!this.navMenu.contains(event.target) && !this.navToggleBtn.contains(event.target)) {
+            this.navMenu.classList.remove('active');
+        }
+    }
 }
 
-// Adding event listener to the navigation toggle button
-const navToggleBtn = document.querySelector('.nav-toggle-btn');
-if (navToggleBtn) {
-    navToggleBtn.addEventListener('click', toggleNavigation);
-}
+// Inicializimi i klasës për navigimin
+new NavigationMenu('.nav-menu', '.nav-toggle-btn');

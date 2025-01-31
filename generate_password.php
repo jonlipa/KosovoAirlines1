@@ -1,4 +1,4 @@
 <?php
-$password = "admin"; // Vendos këtu fjalëkalimin që dëshiron
+$password = "admin"; 
 echo password_hash($password, algo: PASSWORD_DEFAULT);
 ?>

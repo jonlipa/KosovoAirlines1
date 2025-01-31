@@ -1,5 +1,7 @@
-/* Global Mobile Styles */
-body {
+/* =========================
+   Global Mobile Styles 
+   ========================= */
+   body {
     font-size: 16px;
 }
 
@@ -7,31 +9,41 @@ header, nav, footer, .content {
     padding: 10px;
 }
 
-/* Mobile View */
+/* =========================
+   Mobile View (max-width: 768px)
+   ========================= */
 @media (max-width: 768px) {
     header .logo img {
         max-width: 150px;
     }
 
+    nav ul {
+        padding: 0;
+    }
+
     nav ul li {
         display: block;
         margin: 10px 0;
+        text-align: center;
     }
-
     .content {
         padding: 10px;
     }
 
-    .flight-search form, .booking-form form {
+    .flight-search form, 
+    .booking-form form {
         flex-direction: column;
     }
 
-    .booking-form h2, .flight-search h2 {
+    .booking-form h2, 
+    .flight-search h2 {
         font-size: 2em;
     }
 }
 
-/* Tablet View */
+/* =========================
+   Tablet View (769px - 1024px)
+   ========================= */
 @media (min-width: 769px) and (max-width: 1024px) {
     .content {
         padding: 20px;
@@ -41,12 +53,18 @@ header, nav, footer, .content {
         max-width: 170px;
     }
 
+    nav ul {
+        display: flex;
+        justify-content: center;
+    }
     nav ul li {
         margin: 0 10px;
     }
 }
 
-/* Desktop View */
+/* =========================
+   Desktop View (min-width: 1025px)
+   ========================= */
 @media (min-width: 1025px) {
     .content {
         padding: 40px;
@@ -54,6 +72,11 @@ header, nav, footer, .content {
 
     header .logo img {
         max-width: 200px;
+    }
+
+    nav ul {
+        display: flex;
+        justify-content: flex-start;
     }
 
     nav ul li {

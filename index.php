@@ -1,73 +1,79 @@
 <?php
-session_start();
+class AboutPage {
+    private $title;
+    private $stylesheet = "css/about.css";
 
-function isAdmin() {
-    return isset($_SESSION['role']) && $_SESSION['role'] === 'admin';
+    public function __construct($title) {
+        $this->title = $title;
+    }
+
+    public function render() {
+        $this->renderHeader();
+        $this->renderNavigation();
+        $this->renderContent();
+        $this->renderFooter();
+    }
+
+    private function renderHeader() {
+        echo '<!DOCTYPE html>';
+        echo '<html lang="en">';
+        echo '<head>';
+        echo '<meta charset="UTF-8">';
+        echo '<meta name="viewport" content="width=device-width, initial-scale=1.0">';
+        echo "<title>{$this->title}</title>";
+        echo "<link rel='stylesheet' href='{$this->stylesheet}'>";
+        echo "<link rel='stylesheet' href='css/responsive.css'>"; 
+        echo '</head>';
+        echo '<body class="about-page">';
+    }
+
+    private function renderNavigation() {
+        echo '<header>';
+        echo '<div class="logo">';
+        echo '<h1>Kosova Airlines</h1>';
+        echo '</div>';
+        echo '<nav>';
+        echo '<ul>';
+        echo '<li><a href="index.php">Home</a></li>';
+        echo '<li><a href="about.php">About Us</a></li>';
+        echo '<li><a href="destinations.php">Destinations</a></li>';
+        echo '<li><a href="products.php">Products</a></li>';
+        echo '<li><a href="contact.php">Contact</a></li>';
+        echo '<li><a href="login.php">Login</a></li>';
+        echo '</ul>';
+        echo '</nav>';
+        echo '</header>';
+    }
+
+    private function renderContent() {
+        echo '<section class="about">';
+        echo '<div class="about-container">';
+        echo '<h1>About Kosova Airlines</h1>';
+        echo '<p>Welcome to Kosova Airlines, the premier airline offering exceptional travel experiences to destinations across the globe.</p>';
+        echo '<h2>Our Vision</h2>';
+        echo '<p>Our vision is to be the most trusted airline, providing the best in service, safety, and value for travelers.</p>';
+        echo '<h2>Our Mission</h2>';
+        echo '<p>We aim to deliver superior air travel experiences while fostering growth and innovation.</p>';
+        echo '<h2>Why Should You Choose Us?</h2>';
+        echo '<ul>';
+        echo '<li>Exceptional customer service</li>';
+        echo '<li>Affordable flight options</li>';
+        echo '<li>Modern fleet with state-of-the-art facilities</li>';
+        echo '<li>Commitment to safety and sustainability</li>';
+        echo '<li>Wide range of destinations to choose from</li>';
+        echo '</ul>';
+        echo '</div>';
+        echo '</section>';
+    }
+
+    private function renderFooter() {
+        echo "<script src='js/responsive.js'></script>"; 
+        echo '</body>';
+        echo '</html>';
+    }
 }
 
-function renderNavigation() {
-    ?>
-    <nav>
-        <ul>
-            <li><a href="index.php">Home</a></li>
-            <li><a href="about.php">About Us</a></li>
-            <li><a href="destinations.php">Destinations</a></li>
-            <li><a href="products.php">Products</a></li>
-            <li><a href="contact.php">Contact</a></li>
-            <li><a href="login.php">Login</a></li>
-            <li>
-                <a href="<?= isAdmin() ? 'admin_dashboard.php' : 'login.php' ?>" title="<?= isAdmin() ? 'Admin Panel' : 'Login' ?>">
-                    <img src="images/admin_icon.png" alt="<?= isAdmin() ? 'Admin Panel' : 'Login' ?>">
-                </a>
-            </li>
-        </ul>
-    </nav>
-    <?php
-}
-
-function renderHeader() {
-    ?>
-    <header id="mainHeader" class="page-header">
-        <div class="logo">
-            <h1>Kosova Airlines</h1>
-        </div>
-        <?php renderNavigation(); ?>
-    </header>
-    <?php
-}
-
-function renderMainContent() {
-    ?>
-    <main id="mainContent">
-        <video autoplay muted id="homeVideo">
-            <source src="videos/VideoBackground1.mp4" type="video/mp4">
-            <source src="videos/Videobackground2.mp4" type="video/mp4">
-            <source src="videos/Videobackground3.mp4" type="video/mp4">
-        </video>
-        <div class="home-content">
-            <h2>Fly with Kosova Airlines</h2>
-            <p>Your journey begins here. Explore new destinations with comfort and convenience.</p>
-            <a href="destinations.php" class="cta-btn">Explore Destinations</a>
-        </div>
-    </main>
-    <?php
-}
+// Krijojmë objektin dhe shfaqim faqen
+$page = new AboutPage("About Us - Kosova Airlines");
+$page->render();
 ?>
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kosova Airlines - Home</title>
-    <link rel="stylesheet" href="css/header.css">
-    <link rel="stylesheet" href="css/index.css">
-</head>
-<body class="home-page">
-
-    <?php renderHeader(); ?>
-    <?php renderMainContent(); ?>
-
-    <script src="js/index.js"></script>
-</body>
-</html>

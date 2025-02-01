@@ -9,6 +9,7 @@ class AdminDashboard {
         $this->preventCaching();
         $this->connectDatabase();
         $this->handleReservationDeletion();
+        $this->handleContactMessageDeletion();
     }
 
     private function checkAdminAccess() {
@@ -48,6 +49,25 @@ class AdminDashboard {
         }
     }
 
+    private function handleContactMessageDeletion() {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delete_message'])) {
+            $message_id = intval($_POST['message_id']);
+            
+            $delete_query = "DELETE FROM contactmessages WHERE id = ?";
+            $stmt = $this->conn->prepare($delete_query);
+            $stmt->bind_param("i", $message_id);
+            
+            if ($stmt->execute()) {
+                $_SESSION['success_message'] = "Message successfully deleted.";
+            } else {
+                $_SESSION['error_message'] = "Failed to delete message. Please try again.";
+            }
+            $stmt->close();
+            header("Location: admin_dashboard.php");
+            exit();
+        }
+    }
+
     public function fetchStatistics() {
         return [
             'total_users' => $this->getSingleValue("SELECT COUNT(*) as total_users FROM users"),
@@ -82,6 +102,11 @@ class AdminDashboard {
                                    ORDER BY r.departure_date ASC");
     }
 
+    public function fetchContactMessages() {
+        return $this->queryResult("SELECT id, name, email, message, created_at FROM contactmessages ORDER BY created_at DESC");
+    }
+
+
     private function queryResult($query) {
         $result = $this->conn->query($query);
         if (!$result) {
@@ -95,6 +120,8 @@ $adminDashboard = new AdminDashboard();
 $statistics = $adminDashboard->fetchStatistics();
 $users = $adminDashboard->fetchUsers();
 $reservations = $adminDashboard->fetchReservations();
+$ContactMessages = $adminDashboard->fetchContactMessages();
+
 ?>
 
 <!DOCTYPE html>
@@ -185,6 +212,45 @@ $reservations = $adminDashboard->fetchReservations();
                 <?php endwhile; ?>
             </tbody>
         </table>
+
+        <h2>Contact Messages</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Message</th>
+                <th>Received At</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php while ($row = $ContactMessages->fetch_assoc()): ?>
+                <tr>
+                    <td><?php echo htmlspecialchars($row['name']); ?></td>
+                    <td><?php echo htmlspecialchars($row['email']); ?></td>
+                    <td><?php echo htmlspecialchars($row['message']); ?></td>
+                    <td><?php echo htmlspecialchars($row['created_at']); ?></td>
+                    <td>
+                    <button type="button" onclick="confirmDelete(this)">Delete</button>
+                            <div class="delete-message" style="display:none;">
+                                <p>Are you sure you want to delete this message?</p>
+                                <form method="POST">
+                                    <input type="hidden" name="message_id" value="<?php echo htmlspecialchars($row['id']); ?>">
+                                    <button type="submit" name="delete_message">Yes</button>
+                                    <button type="button" onclick="this.parentElement.style.display='none'">No</button>
+                                </form>
+                            </div>
+                    </td>
+                </tr>
+            <?php endwhile; ?>
+        </tbody>
+    </table>
+
+        
+    
+
+
         <div class="logout">
             <a href="logout.php">Log Out</a>
         </div>
@@ -194,4 +260,3 @@ $reservations = $adminDashboard->fetchReservations();
 
 </body>
 </html>
-

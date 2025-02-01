@@ -1,4 +1,6 @@
 <?php 
+session_start(); // Shtojmë session për të ruajtur mesazhin e suksesit
+
 class ContactPage {
     private $title;
     private $stylesheet = "css/contact.css";
@@ -11,10 +13,49 @@ class ContactPage {
     }
 
     public function render() {
+        $this->handleFormSubmission(); // Kthen mesazh suksesi nëse forma dërgohet
         $this->renderHeader();
         $this->renderNavigation();
         $this->renderContent();
         $this->renderFooter();
+    }
+
+    private function handleFormSubmission() {
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            $servername = "localhost"; 
+            $username = "root"; 
+            $password = ""; 
+            $dbname = "kosovaairlines"; 
+
+            // Lidhja me databazën
+            $conn = new mysqli($servername, $username, $password, $dbname);
+
+            // Kontrollo lidhjen
+            if ($conn->connect_error) {
+                die("Connection failed: " . $conn->connect_error);
+            }
+
+            // Merr të dhënat nga forma dhe pastro inputin
+            $name = htmlspecialchars($_POST["name"]);
+            $email = htmlspecialchars($_POST["email"]);
+            $message = htmlspecialchars($_POST["message"]);
+
+            // Përgatit dhe ekzekuto SQL query
+            $stmt = $conn->prepare("INSERT INTO contactmessages (name, email, message) VALUES (?, ?, ?)");
+            $stmt->bind_param("sss", $name, $email, $message);
+
+            if ($stmt->execute()) {
+                $_SESSION["success_message"] = "Your message has been sent successfully!";
+                header("Location: contact.php"); // Rifresko faqen për të treguar mesazhin
+                exit();
+            } else {
+                $_SESSION["error_message"] = "Error: " . $stmt->error;
+            }
+
+            // Mbyll lidhjen
+            $stmt->close();
+            $conn->close();
+        }
     }
 
     private function renderHeader() {
@@ -25,7 +66,7 @@ class ContactPage {
         echo '<meta name="viewport" content="width=device-width, initial-scale=1.0">';
         echo "<title>{$this->title}</title>";
         echo "<link rel='stylesheet' href='{$this->stylesheet}'>";
-        echo "<link rel='stylesheet' href='{$this->responsiveStylesheet}'>"; // Shtohet responsive.css
+        echo "<link rel='stylesheet' href='{$this->responsiveStylesheet}'>";
         echo '</head>';
         echo '<body class="contact-page">';
     }
@@ -53,7 +94,6 @@ class ContactPage {
         echo '<section class="contact-info">';
         echo '<h1>Contact Us</h1>';
         echo '<p>We’d love to hear from you! Reach out to us for any inquiries, feedback, or assistance.</p>';
-
         echo '<div class="info-grid">';
         echo '<div class="info-item">';
         echo '<h2>Address</h2>';
@@ -72,7 +112,8 @@ class ContactPage {
 
         echo '<section class="contact-form">';
         echo '<h2>Get in Touch</h2>';
-        echo '<form id="contactForm" action="#" method="post">';
+        
+        echo '<form id="contactForm" action="contact.php" method="post">';
         echo '<label for="name">Your Name</label>';
         echo '<input type="text" id="name" name="name" placeholder="Enter your name" required>';
         
@@ -83,23 +124,28 @@ class ContactPage {
         echo '<textarea id="message" name="message" rows="5" placeholder="Write your message here" required></textarea>';
         
         echo '<button type="submit" class="submit-btn">Send Message</button>';
+
+        if (isset($_SESSION["success_message"])) {
+            echo "<p class='success-message'>{$_SESSION["success_message"]}</p>";
+            unset($_SESSION["success_message"]);
+        } elseif (isset($_SESSION["error_message"])) {
+            echo "<p class='error-message'>{$_SESSION["error_message"]}</p>";
+            unset($_SESSION["error_message"]);
+        }
+
         echo '</form>';
-        
-        // Div për mesazhin e konfirmimit
-        echo '<p id="successMessage" class="hidden">Your message has been sent successfully!</p>';
         echo '</section>';
         echo '</main>';
     }
 
     private function renderFooter() {
         echo "<script src='{$this->script}'></script>";
-        echo "<script src='{$this->responsiveScript}'></script>"; // Shtohet responsive.js
+        echo "<script src='{$this->responsiveScript}'></script>";
         echo '</body>';
         echo '</html>';
     }
 }
 
-// Krijojmë objektin dhe shfaqim faqen
 $page = new ContactPage("Contact Us - Kosova Airlines");
 $page->render();
 ?>

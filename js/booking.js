@@ -1,4 +1,3 @@
-<script>
 class FlightBooking {
     constructor(formSelector) {
         this.form = document.querySelector(formSelector);
@@ -77,5 +76,6 @@ class FlightBooking {
     }
 }
 
-new FlightBooking("form");
-</script>
+document.addEventListener("DOMContentLoaded", () => {
+    new FlightBooking("form");
+});

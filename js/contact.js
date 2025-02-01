@@ -1,4 +1,4 @@
-class ContactForm {
+class ContactForm { 
     constructor(formId, messageId) {
         this.form = document.getElementById(formId);
         this.successMessage = document.getElementById(messageId);
@@ -12,17 +12,14 @@ class ContactForm {
     }
 
     handleSubmit(event) {
-        event.preventDefault();
-        
         const name = document.getElementById("name").value.trim();
         const email = document.getElementById("email").value.trim();
         const message = document.getElementById("message").value.trim();
 
-        if (this.validateInputs(name, email, message)) {
+        if (!this.validateInputs(name, email, message)) {
+            event.preventDefault(); // Ndalo dërgimin vetëm nëse ka fusha bosh
+        } else {
             this.showSuccessMessage();
-            setTimeout(() => {
-                this.form.reset();
-            }, 500);
         }
     }
 

@@ -1,9 +1,9 @@
-<?php
+<?php 
 session_start();
 
 class DestinationPage {
     private $conn;
-    private $destination_id = 7; // ID e Dubai në databazë
+    private $destination_id = 7; // ID e Dubai-it në databazë
     private $successMessage = "";
 
     public function __construct() {
